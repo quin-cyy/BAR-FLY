@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Oswald', sans-serif;
+      background-color: #000;
+      color: #FAFAFA;
+    }
+    .sticky-header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(17, 17, 17, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 20px;
+      z-index: 1000;
+    }
+    .menu-container {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 36px;
+      font-weight: bold;
+    }
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+    }
+    .menu li a {
+      color: #FAFAFA;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 5px 10px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .menu li a:hover {
+      color: #D2B48C;
+      transform: translateY(-3px);
+    }
+    .menu li a::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #FFFFFF;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      transform: scaleX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+    .menu li a:hover::after {
+      transform: scaleX(1);
+    }
+    .cart-icon {
+      cursor: pointer;
+      font-size: 24px;
+      color: #FAFAFA;
+      padding: 5px 10px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .cart-icon:hover {
+      color: #D2B48C;
+      transform: translateY(-3px);
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1481833761820-0509d3217039?q=80&w=2070&auto=format&fit=crop')
+        no-repeat center center/cover;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-top: 70px;
+    }
+    .hero h1 {
+      font-size: 80px;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 28px;
+      margin: 40px 0 20px;
+    }
+    .products-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      padding: 0 20px 50px;
+    }
+    .product-card {
+      background: #111;
+      border-radius: 10px;
+      width: 300px;
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    .product-image img {
+       width: 100%;
+       height: 250px; 
+       object-fit: cover; 
+       border-bottom: 1px solid #333;
+    }
+    
+    .product-info {
+      padding: 20px;
+    }
+    .product-info h3 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+    .product-info p {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    .price {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .quantity-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+    .quantity-wrapper label {
+      font-size: 16px;
+    }
+    .quantity-input {
+      width: 80px;
+      padding: 8px;
+      text-align: center;
+      background: #000;
+      color: #FAFAFA;
+      border: 1px solid #FAFAFA;
+      border-radius: 4px;
+      font-size: 18px;
+      outline: none;
+    }
+    .add-to-cart-btn {
+      background: #000;
+      border: 1px solid #FAFAFA;
+      color: #FAFAFA;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .add-to-cart-btn:hover {
+      background: #FAFAFA;
+      color: #000;
+    }
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 400px;
+      height: 100%;
+      background: #111;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .cart-sidebar.open {
+      transform: translateX(0);
+    }
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .cart-header h2 {
+      font-size: 20px;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .close-cart {
+      background: transparent;
+      border: 1px solid #FAFAFA;
+      color: #FAFAFA;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      margin-bottom: 20px;
+    }
+    .cart-item {
+      border-bottom: 1px solid #333;
+      padding: 10px 0;
+    }
+    .cart-item h4 {
+      margin-bottom: 5px;
+      font-size: 18px;
+    }
+    .cart-footer {
+      border-top: 1px solid #333;
+      padding-top: 10px;
+      text-align: right;
+    }
+    .cart-footer p {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    .checkout-btn {
+      background: #000;
+      border: 1px solid #FAFAFA;
+      color: #FAFAFA;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .checkout-btn:hover {
+      background: #FAFAFA;
+      color: #000;
+    }
+    footer {
+      background: #1a1a1a;
+      padding: 15px 10px;
+      text-align: center;
+    }
+    .footer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer-nav {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 10px;
+    }
+    .footer-nav li {
+      margin: 0 10px;
+    }
+    .footer-nav .nav-link {
+      color: #FAFAFA !important;
+      font-size: 14px;
+      font-weight: normal;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+    .footer-nav .nav-link:hover {
+      color: #D2B48C !important;
+    }
+    footer p {
+      margin: 0;
+      font-size: 14px;
+      color: #FAFAFA;
+    }
+    /* Popup styles */
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #111;
+      color: #FAFAFA;
+      padding: 15px 25px;
+      border: 1px solid #FAFAFA;
+      border-radius: 4px;
+      z-index: 3000;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .popup.show {
+      opacity: 0.95;
+    }
+    @media (max-width: 768px) {
+      .menu {
+        flex-direction: column;
+      }
+      .products-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      .product-card {
+        width: 90%;
+        max-width: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="sticky-header">
+    <div class="menu-container">
+      <div class="logo">BAR FLY</div>
+      <ul class="menu">
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="AboutUs.html">About Us</a></li>
+        <li><a href="Menu.html">Menu</a></li>
+		<li><a href="Gallery.html">Gallery</a></li>
+        <li><a href="FAQ.html">FAQ</a></li>
+        <li><a href="ContactUs.html">Contact Us</a></li>
+        <li><a href="Reviews.html">Reviews</a></li>
+      </ul>
+      <div class="cart-icon" onclick="toggleCart(true)">
+        <i class="fa-solid fa-cart-shopping"></i>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>House Blend Coffees</h1>
+  </section>
+
+  <h2 class="section-title"></h2>
+  <section class="products-section">
+    <div class="product-card">
+      <div class="product-image">
+        <img src="coffee4.jpg" alt="Caramel Macchiato">
+      </div>
+      <div class="product-info">
+        <h3>Caramel Macchiato</h3>
+        <p>(Espresso, Caramel Sauce, Emborg Full Cream)</p>
+        <p class="price">₱100.00</p>
+        <div class="quantity-wrapper">
+          <label>Qty:</label>
+          <input type="number" min="1" value="1" class="quantity-input">
+        </div>
+        <button class="add-to-cart-btn" data-name="Caramel Macchiato" data-price="100">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-image">
+        <img src="coffee.5.jpg" alt="Spanish latte">
+      </div>
+      <div class="product-info">
+        <h3>Spanish latte</h3>
+        <p>(Espresso, con-leche base, Emborg Full Cream)</p>
+        <p class="price">₱100.00</p>
+        <div class="quantity-wrapper">
+          <label>Qty:</label>
+          <input type="number" min="1" value="1" class="quantity-input">
+        </div>
+        <button class="add-to-cart-btn" data-name="Spanish latte" data-price="100">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-image">
+        <img src="coffee3..jpg" alt="Cate Latte">
+      </div>
+      <div class="product-info">
+        <h3>Cate Latte</h3>
+        <p>(Espresso, Emborg Full Cream)/p>
+        <p class="price">₱100.00</p>
+        <div class="quantity-wrapper">
+          <label>Qty:</label>
+          <input type="number" min="1" value="1" class="quantity-input">
+        </div>
+        <button class="add-to-cart-btn" data-name="Cate Latte" data-price="100">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section">
+    <div class="product-card">
+      <div class="product-image">
+        <img src="coffee2.jpg" alt="White Chocolate Mocha">
+      </div>
+      <div class="product-info">
+        <h3>White Chocolate Mocha</h3>
+        <p>(Auro White Chocolate, Espresso, Emborg Full Cream)</p>
+        <p class="price">₱100.00</p>
+        <div class="quantity-wrapper">
+          <label>Qty:</label>
+          <input type="number" min="1" value="1" class="quantity-input">
+        </div>
+        <button class="add-to-cart-btn" data-name="White Chocolate Mocha" data-price="100">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-image">
+        <img src="coffee1.jpg" alt="Cappuccino">
+      </div>
+      <div class="product-info">
+        <h3>Cappuccino</h3>
+        <p>(Espresso, Emborg Full Cream - frothed & foamed)</p>
+        <p class="price">₱100.00</p>
+        <div class="quantity-wrapper">
+          <label>Qty:</label>
+          <input type="number" min="1" value="1" class="quantity-input">
+        </div>
+        <button class="add-to-cart-btn" data-name="Cappuccino" data-price="100">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="cartSidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button class="close-cart" onclick="toggleCart()">Close</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <p id="cartTotalItems">Items: 0</p>
+      <p id="cartTotalPrice">Total: ₱0.00</p>
+      <button class="checkout-btn">Checkout</button>
+    </div>
+  </div>
+  
+  <!-- Popup Notification -->
+  <div id="popup" class="popup">Thank you for your purchase!</div>
+
+  <footer>
+    <div class="footer-container">
+      <ul class="footer-nav">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="FAQ.html">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Reviews</a></li>
+      </ul>
+      <p>@BARFLY</p>
+    </div>
+  </footer>
+
+  <script>
+    let cart = [];
+    const cartSidebar = document.getElementById('cartSidebar');
+    const cartItemsContainer = document.getElementById('cartItems');
+    const cartTotalItems = document.getElementById('cartTotalItems');
+    const cartTotalPrice = document.getElementById('cartTotalPrice');
+    const checkoutBtn = document.querySelector('.checkout-btn');
+    const popup = document.getElementById('popup');
+
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.product-card');
+        const quantityInput = card.querySelector('.quantity-input');
+        const quantity = parseInt(quantityInput.value, 10) || 1;
+        const name = btn.getAttribute('data-name');
+        const price = parseFloat(btn.getAttribute('data-price'));
+        const existingItem = cart.find(item => item.name === name);
+        if (existingItem) {
+          existingItem.quantity += quantity;
+        } else {
+          cart.push({ name, price, quantity });
+        }
+        quantityInput.value = 1;
+        updateCartUI();
+        toggleCart(true);
+      });
+    });
+
+    function toggleCart(open) {
+      if (typeof open === 'boolean') {
+        cartSidebar.classList.toggle('open', open);
+      } else {
+        cartSidebar.classList.toggle('open');
+      }
+    }
+
+    function updateCartUI() {
+      cartItemsContainer.innerHTML = '';
+      let totalItems = 0;
+      let totalPrice = 0;
+      cart.forEach(item => {
+        totalItems += item.quantity;
+        totalPrice += item.price * item.quantity;
+        const cartItemDiv = document.createElement('div');
+        cartItemDiv.classList.add('cart-item');
+        cartItemDiv.innerHTML = `
+          <h4>${item.name}</h4>
+          <p>Price: ₱${item.price}</p>
+          <p>Quantity: ${item.quantity}</p>
+        `;
+        cartItemsContainer.appendChild(cartItemDiv);
+      });
+      cartTotalItems.textContent = 'Items: ' + totalItems;
+      cartTotalPrice.textContent = 'Total: ₱' + totalPrice.toFixed(2);
+    }
+
+    // When the checkout button is clicked, show the pop-up notification.
+    checkoutBtn.addEventListener('click', () => {
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+      // Show the popup
+      popup.classList.add('show');
+      // Hide it after 3 seconds
+      setTimeout(() => {
+        popup.classList.remove('show');
+      }, 3000);
+    });
+  </script>
+</body>
+</html>

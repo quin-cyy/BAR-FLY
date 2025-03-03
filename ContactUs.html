@@ -1,0 +1,234 @@
+
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="sticky-header">
+        <div class="menu-container">
+            <div class="logo">BAR FLY</div>
+            <ul class="menu">
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+                <li><a href="ContactUs.html">Contact Us</a></li>
+                <li><a href="Reviews.html">Reviews</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title"></h1>
+        </div>
+    </section>
+    
+   <section class="content-section">
+        <div class="section-image">
+            <img src="https://i.imgur.com/A2LHNVN.jpeg" alt="img2">
+        </div>
+        <div class="section-textbox">
+            <h1>CONTACT US</h1>
+			<p>Location:221 La Fuerza 2 <u>Chino Roces Ave Makati City</u></p>
+			<p>Phone No: 0905 282 2342</p>
+			<p>Email: barfly@sebastiaoph.com</p>
+            <a href="https://www.instagram.com/barfly.ph?igsh=MXgzN2xsanR3aHA0cA=="><u>@barfly.ph on Instagram</u></a><br>
+			
+		    <a href="https://www.facebook.com/share/15rEuZenVN/?mibextid=wwXIfr"><u>@barfly.ph on Facebook</u></a>
+
+        </div>
+    </section>
+    <div class="divider"></div>
+    
+    
+     <footer>
+    <div class="footer-container">
+      <ul class="footer-nav">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="FAQ.html">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Reviews</a></li>
+      </ul>
+      <p>@BARFLY</p>
+    </div>
+  </footer>
+
+    <style>
+       * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Oswald', sans-serif;
+      background-color: #000;
+      color: #FAFAFA;
+    }
+    .sticky-header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(17, 17, 17, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 20px;
+      z-index: 1000;
+    }
+    .menu-container {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+	   position: relative;
+    }
+    .logo {
+      font-size: 36px;
+      font-weight: bold;
+    }
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+	  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+    }
+    .menu li a {
+      color: #FAFAFA;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 5px 10px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .menu li a:hover {
+      color: #D2B48C;
+      transform: translateY(-3px);
+    }
+    .menu li a::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #FFFFFF;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      transform: scaleX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+    .menu li a:hover::after {
+      transform: scaleX(1);
+    }
+		a {
+           color: #FAFAFA; 
+           text-decoration: none;
+        }
+
+        a:hover {
+           color: #D2B48C; 
+           transition: color 0.3s ease; 
+        }
+        .hero-title {
+            font-size: 60px;
+			color: #000000;
+        }
+        .hero {
+            background: url('https://i.imgur.com/m3E1RNv.jpg') no-repeat center center/cover;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .content-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px 50px;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .section-textbox {
+            background: #000000;
+            padding: 0px;
+            border-radius: 10px;
+            max-width: 600px;
+        }
+		.section-textbox h1 {
+            font-size: 80px;
+            text-transform: uppercase; 
+            letter-spacing: 5px; 
+            color: #fafafa; 
+            margin-bottom: 20px;
+        }
+        .section-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10000px;
+        }
+        .divider {
+            width: 100%;
+            height: 2px;
+            background: #FAFAFA;
+            margin: 40px auto;
+        }
+    footer {
+      background: #1a1a1a;
+      padding: 15px 10px;
+      text-align: center;
+    }
+    .footer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer-nav {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 10px;
+    }
+    .footer-nav li {
+      margin: 0 10px;
+    }
+    .footer-nav .nav-link {
+      color: #FAFAFA !important;
+      font-size: 14px;
+      font-weight: normal;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+    .footer-nav .nav-link:hover {
+      color: #D2B48C !important;
+    }
+    footer p {
+      margin: 0;
+      font-size: 14px;
+      color: #FAFAFA;
+    }
+        }
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+</html>
+
+	

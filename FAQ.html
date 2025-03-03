@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+   <style>
+* {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Oswald', sans-serif;
+      background-color: #000;
+      color: #FAFAFA;
+    }
+    .sticky-header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(17, 17, 17, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 20px;
+      z-index: 1000;
+    }
+    .menu-container {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+	   position: relative;
+    }
+    .logo {
+      font-size: 36px;
+      font-weight: bold;
+    }
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+	  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+    }
+    .menu li a {
+      color: #FAFAFA;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 5px 10px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .menu li a:hover {
+      color: #D2B48C;
+      transform: translateY(-3px);
+    }
+    .menu li a::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #FFFFFF;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      transform: scaleX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+    .menu li a:hover::after {
+      transform: scaleX(1);
+    }
+    .hero-title {
+      font-size: 60px;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1481833761820-0509d3217039?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero-content {
+      max-width: 600px;
+      padding: 0 20px;
+    }
+    .content-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 20px 50px;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .section-textbox {
+      background: #111;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+    }
+    .divider {
+      width: 80%;
+      height: 2px;
+      background: #FAFAFA;
+      margin: 40px auto;
+    }
+    footer {
+      background: #1a1a1a;
+      padding: 15px 10px;
+    }
+    .footer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer-nav {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 10px;
+    }
+    .footer-nav li {
+      margin: 0 10px;
+    }
+    .footer-nav .nav-link {
+      color: #FAFAFA !important;
+      font-size: 14px;
+      font-weight: normal;
+      transition: color 0.3s ease;
+    }
+    .footer-nav .nav-link:hover {
+      color: #D2B48C !important;
+    }
+    footer p {
+      margin: 0;
+      font-size: 14px;
+      color: #FAFAFA;
+    }
+    .faq-container {
+      margin-top: 20px;
+      padding: 0 20px;
+    }
+    .faq-item {
+      margin-bottom: 15px;
+      background: #000;
+      border: 1px solid #FAFAFA;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%;
+      background: transparent;
+      color: #FAFAFA;
+      border: none;
+      padding: 15px;
+      text-align: left;
+      font-size: 18px;
+      cursor: pointer;
+      outline: none;
+    }
+    .faq-question:hover {
+      background: #333;
+    }
+    .faq-answer {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      padding: 0 15px;
+      transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      opacity: 1;
+      padding: 15px;
+    }
+    @media (max-width: 768px) {
+      .menu {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="sticky-header">
+    <div class="menu-container">
+      <div class="logo">BAR FLY</div>
+      <ul class="menu">
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="AboutUs.html">About Us</a></li>
+        <li><a href="Menu.html">Menu</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+        <li><a href="ContactUs.html">Contact Us</a></li>
+        <li><a href="Reviews.html">Reviews</a></li>
+        <li><a href="FAQ.html">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title"></h1>
+      <p></p>
+    </div>
+  </section>
+  <section class="content-section faq-section" style="padding: 80px 20px 50px; justify-content: center;">
+    <div class="section-textbox" style="max-width: 800px; width: 100%; margin: 0 auto;">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question">+ Service</button>
+          <div class="faq-answer">
+            <p>The biggest problem we've seen in coffee events services are the long lines and wait time per cup.</P>
+<p>With Bar Fly, we have 2 espresso machines and 2-3 baristas to ensure significantly faster production per cup. No long lines and minimal wait time for guests.
+2 barista for our standard events and 3 baristas for bigger parties.
+8000</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">+ Cafe Quality Coffee</button>
+          <div class="faq-answer">
+            <p>Premium beans, coffee, and milk. Our cost per cup may be steeper, but you're paying for cafe quality coffee for your event. We make no compromises or shortcuts. We use DeLonghi premium beans, Emborg milk, and Auro chocolates on our chocolate-based drinks.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">+ Taste Test</button>
+          <div class="faq-answer">
+            <p>We encourage our guests to send us a message and schedule a taste test with our coffee menu. We're currently located in Taguig. [Soon] We have a tasting studio under construction in Makati.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">+ Cost</button>
+          <div class="faq-answer">
+            <p>Php 15,900</p>
+             <p> Inclusive of:</p>
+<p>2 Barista, full set up and equipment, purified ice, appropriate cups,
+4 to 6 hours service, transportation fee within NCR
+P100 for every additional servings</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-container">
+      <ul class="footer-nav">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="Menu.html">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Reviews</a></li>
+      </ul>
+      <p>@BarFly</p>
+    </div>
+  </footer>
+  <script>
+    var faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(function(item) {
+      var question = item.querySelector('.faq-question');
+      question.addEventListener('click', function() {
+        faqItems.forEach(function(i) {
+          if(i !== item) {
+            i.classList.remove('active');
+          }
+        });
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>

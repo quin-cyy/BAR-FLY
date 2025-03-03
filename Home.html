@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placeholder</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="sticky-header">
+        <div class="menu-container">
+            <div class="logo">Bar Fly</div>
+            <ul class="menu">
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+                <li><a href="ContactUs.html">Contact Us</a></li>
+                <li><a href="Reviews.html">Reviews</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Bar Fly</h1>
+            <p>Serving Craft Coffee to Events.</p>
+        </div>
+    </section>
+    
+    <section class="content-section" style="padding-top: 80px;">
+        <div class="section-textbox">
+            <h2>From Zero</h2>
+            <p> A little over a year ago, we took our espresso machine and built a simple cart to take to events. No fancy coffee names. Just your classic, well made coffee!</p>
+        </div>
+        <div class="section-image">
+            <img src="https://sebastiaoph.com/cdn/shop/files/DSC_0276_1200x1200.jpg" alt="img1">
+        </div>
+    </section>
+    <div class="divider"></div>
+    
+    <section class="content-section">
+        <div class="section-image">
+            <img src="https://i.imgur.com/A2LHNVN.jpeg" alt="img2">
+        </div>
+        <div class="section-textbox">
+            <h2>Good Coffee Always At The Ready</h2>
+            <p>Ready for battle — and a few hundred cups of coffee.</p>
+        </div>
+    </section>
+    <div class="divider"></div>
+    
+    <section class="content-section">
+        <div class="section-textbox">
+            <h2>Always On The Fly</h2>
+            <p>From weddings, birthdays, to office events — thank you for having the Bar Fly team!</p>
+        </div>
+        <div class="section-image">
+            <img src="https://i.imgur.com/c3P1EWg.jpeg" alt="Placeholder">
+        </div>
+    </section>
+    <div class="divider"></div>
+    
+    <section class="content-section">
+        <div class="section-image">
+            <img src="https://i.imgur.com/ahUbH6H.png" alt="Placeholder">
+        </div>
+        <div class="section-textbox">
+            <h2>Where We Are</h2>
+            <p>A mobile coffee bar service based in Taguig — with an espresso studio in Makati.</p>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <p>Esguerra, Corsiga, Alano Jazmine, Alano Janize | ITS121 </p>
+    </footer>
+
+    <style>
+        * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Oswald', sans-serif;
+      background-color: #000;
+      color: #FAFAFA;
+    }
+    .sticky-header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(17, 17, 17, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 20px;
+      z-index: 1000;
+    }
+    .menu-container {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+	   position: relative;
+    }
+    .logo {
+      font-size: 36px;
+      font-weight: bold;
+    }
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+	  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+    }
+    .menu li a {
+      color: #FAFAFA;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 5px 10px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .menu li a:hover {
+      color: #D2B48C;
+      transform: translateY(-3px);
+    }
+    .menu li a::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #FFFFFF;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      transform: scaleX(0);
+      transition: transform 0.3s ease-in-out;
+    }
+    .menu li a:hover::after {
+      transform: scaleX(1);
+    }
+        .hero-title {
+            font-size: 60px;
+        }
+        .hero {
+            background: url('https://images.unsplash.com/photo-1481833761820-0509d3217039?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .content-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px 50px;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .section-textbox {
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+        }
+        .section-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        .divider {
+            width: 100%;
+            height: 2px;
+            background: #FAFAFA;
+            margin: 40px auto;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #111;
+            margin-top: 40px;
+        }
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Fly</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="sticky-header">
+        <div class="menu-container">
+            <div class="logo">BAR FLY</div>
+            <ul class="menu">
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+                <li><a href="ContactUs.html">Contact Us</a></li>
+                <li><a href="Reviews.html">Reviews</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">BAR FLY</h1>
+            <p>Serving Craft Coffee to Events.</p>
+        </div>
+    </section>
+    
+    <section class="content-section" style="padding-top: 80px;">
+        <div class="section-textbox">
+            <h2>From Zero</h2>
+            <p> A little over a year ago, we took our espresso machine and built a simple cart to take to events. No fancy coffee names. Just your classic, well made coffee!</p>
+        </div>
+        <div class="section-image">
+            <img src="https://sebastiaoph.com/cdn/shop/files/DSC_0276_1200x1200.jpg" alt="img1">
+        </div>
+    </section>
+    <div class="divider"></div>
+    
+    <section class="content-section">
+        <div class="section-image">
+            <img src="https://i.imgur.com/A2LHNVN.jpeg" alt="img2">
+        </div>
+        <div class="section-textbox">
+            <h2>Good Coffee Always At The Ready</h2>
+            <p>Ready for battle — and a few hundred cups of coffee.</p>
+        </div>
+    </section>
+    <div class="divider"></div>
+    
+    <section class="content-section">
+        <div class="section-textbox">
+            <h2>Always On The Fly</h2>
+            <p>From weddings, birthdays, to office events — thank you for having the Bar Fly team!</p>
+        </div>
+        <div class="section-image">
+            <img src="https://i.imgur.com/c3P1EWg.jpeg" alt="Placeholder">
+        </div>
+    </section>
+    <div class="divider"></div>
+    
+    <section class="content-section">
+        <div class="section-image">
+            <img src="https://i.imgur.com/ahUbH6H.png" alt="Placeholder">
+        </div>
+        <div class="section-textbox">
+            <h2>Where We Are</h2>
+            <p>A mobile coffee bar service based in Taguig — with an espresso studio in Makati.</p>
+        </div>
+    </section>
+    
+     <footer>
+    <div class="footer-container">
+      <ul class="footer-nav">
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="AboutUs.html">About Us</a></li>
+        <li><a href="Menu.html">Menu</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+        <li><a href="ContactUs.html">Contact Us</a></li>
+        <li><a href="Reviews.html">Reviews</a></li>
+        <li><a href="FAQ.html">FAQ</a></li>
+      </ul>
+      <p>@BARFLY</p>
+    </div>
+  </footer>
+
+    <style>
+        body {
+            font-family: 'Oswald', sans-serif;
+            background-color: #000000;
+            color: #FAFAFA;
+            margin: 0;
+            padding: 0;
+        }
+        .sticky-header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            transition: transform 0.3s ease-in-out;
+            background: rgba(17, 17, 17, 0.9);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            justify-content: space-between;
+        }
+        .menu-container {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+        .menu li a {
+            color: #FAFAFA;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+        }
+        .menu li a:hover {
+            color: #D2B48C;
+            transform: translateY(-3px);
+        }
+        .menu li a::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: #FFFFFF;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+        .menu li a:hover::after {
+            transform: scaleX(1);
+        }
+        .hero-title {
+            font-size: 48px;
+        }
+        .hero {
+            background: url('https://images.unsplash.com/photo-1481833761820-0509d3217039?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .content-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px 50px;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .section-textbox {
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+        }
+        .section-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        .divider {
+            width: 80%;
+            height: 2px;
+            background: #FAFAFA;
+            margin: 40px auto;
+       }
+    footer {
+      background: #1a1a1a;
+      padding: 15px 10px;
+      text-align: center;
+    }
+    .footer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer-nav {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 10px;
+    }
+    .footer-nav li {
+      margin: 0 10px;
+    }
+    .footer-nav .nav-link {
+      color: #FAFAFA !important;
+      font-size: 14px;
+      font-weight: normal;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+    .footer-nav .nav-link:hover {
+      color: #D2B48C !important;
+    }
+    footer p {
+      margin: 0;
+      font-size: 14px;
+      color: #FAFAFA;
+    }
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+</html>
+
